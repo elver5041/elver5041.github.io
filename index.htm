@@ -3,9 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <title>elver's hub</title>
-        <link rel="stylesheet" href="styles.css">
+        <style>
+            div {
+                color:royalblue
+            }
+            div .focused{
+                color:aqua
+            }
+        </style>
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     </head>
     <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            const $app = document.getElementById("app");
+            const useState = React.useState;
 
+            const Button = () => {
+                const [hovering, setHovering] = useState(false);
+                const selected = hovering ? "focused" : "unfocused";
+                return (
+                    <div className={selected}
+                    onMouseEnter={() => {setHovering(true);}}
+                    onMouseLeave={() => {setHovering(false);}}>
+                    </div>
+                );
+            };
+
+            ReactDOM.render(
+                <div>
+                    <div display="inline">
+                        <Button/>
+                        <Button/>
+                    </div>
+                </div>,
+                $app
+            );
+        </script>
     </body>
 </html>
