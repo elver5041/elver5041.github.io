@@ -4,14 +4,23 @@
         <meta charset="UTF-8">
         <title>elver's hub</title>
         <style>
-            div {
+            div .button{
+                margin: 25px;
+                height: 100px;
+                width: 100px;
                 color:royalblue;
-                display: inline;
                 background-color: beige;
+                text-align: center;
+                display: block;
             }
             div .focused{
                 color:aqua;
                 background-color: orange;
+            }
+            div .main{
+                display:flex;
+                justify-content:center;
+                width:100%;
             }
         </style>
         <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
@@ -19,29 +28,27 @@
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     </head>
     <body>
-        <div id="app"></div>
+        <div id="app" ></div>
         <script type="text/babel">
             const $app = document.getElementById("app");
             const useState = React.useState;
 
-            const Button = () => {
+            const Button = ({title}) => {
                 const [hovering, setHovering] = useState(false);
-                const selected = hovering ? "focused" : "unfocused";
-                return (
-                    <div className={selected}
+                const selected = hovering ? "focused" : "";
+                return(
+                    <div className={selected+" button"}
                     onMouseEnter={() => {setHovering(true);}}
                     onMouseLeave={() => {setHovering(false);}}>
-                        <p>lmaoooo</p>
+                        <p>{title}</p>
                     </div>
                 );
             };
 
             ReactDOM.render(
-                <div>
-                    <div align="center">
-                        <Button/>
-                        <Button/>
-                    </div>
+                <div className="main">
+                    <Button title="game"/>
+                    <Button title="game2"/>
                 </div>,
                 $app
             );
