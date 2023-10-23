@@ -8,7 +8,7 @@ import TimeTable from './pages/TimeTable';
 function App() {
   return (
     <div className='App'>
-      <Router>
+      <Router basename="/repo-name">
         <Routes>
           <Route path="/" element={<></>}/>
           <Route path="/lmaotest" element={<TestScreen/>}/>

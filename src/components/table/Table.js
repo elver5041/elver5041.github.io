@@ -5,11 +5,11 @@ const Table = ({contents}) => {
         <table>
             <thead>
                 <tr>
-                    {contents[0].map((item) => <th>{item}</th>)}
+                    {contents[0].map((item,i) => <th key={i}>{item}</th>)}
                 </tr>
             </thead>
             <tbody>
-                {contents.map((list,i) => i && <tr key={i}>{list.map((item)=><th>{item}</th>)}</tr>)}
+                {contents.slice(1).map((list,i) => <tr key={i}>{list.map((item,j)=><th key={j}>{item}</th>)}</tr>)}
             </tbody>
         </table>
     );
