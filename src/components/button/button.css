@@ -1,0 +1,15 @@
+
+div .button{
+    margin: 25px;
+    height: 100px;
+    width: 100px;
+    color:royalblue;
+    background-color: beige;
+    text-align: center;
+    display: block;
+}
+
+div .focused{
+    color:aqua;
+    background-color: orange;
+}
