@@ -1,12 +1,10 @@
 
 div .button{
-    margin: 25px;
-    height: 100px;
-    width: 100px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     color:royalblue;
     background-color: beige;
-    text-align: center;
-    display: block;
 }
 
 div .focused{
