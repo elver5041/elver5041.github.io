@@ -6,32 +6,32 @@ import TimeTable from './pages/TimeTable';
 import { useEffect, useState } from 'react';
 import Header from './components/header/Header';
 
+export const screens = {
+  Main: ["main", <></>],
+  LmaoTest: ["lmaotest", <TestScreen/>],
+  Todo: ["todo", <ToDo/>],
+  Avaliablilty: ["avaliability", <TimeTable/>]
+}
+
 function App() {
-  const screens = ["main","lmaotest", "todo", "avaliability"]
-  const  [search, setSearch]  = useState("lmaotest")
+  const  [search, setSearch]  = useState(screens.LmaoTest[0])
   const [comp, setComp] = useState(<></>)
   useEffect(()=>{
-    switch (search) {
-      case "main":
-        setComp(<></>)
-        break;
-      case "lmaotest":
-        setComp(<TestScreen/>)
-        break;
-      case "todo":
-        setComp(<ToDo/>)
-        break;
-      case "avaliability":
-        setComp(<TimeTable/>)
-        break;
-      default:
-        setComp(<P404/>)
+    let set = false
+    for (let screen in screens) {
+      if(search===screens[screen][0]){
+        setComp(screens[screen][1])
+        set=true
+      }
+    }
+    if(!set){
+      setComp(<P404/>)
     }
   },[search])
   
   return (
     <div className='App'>
-      <Header changer={setSearch} allscreens={screens}/>
+      <Header changer={setSearch} />
       {comp}
     </div>
   );
