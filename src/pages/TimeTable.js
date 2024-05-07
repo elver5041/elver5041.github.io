@@ -3,7 +3,7 @@ import Table from "../components/table/Table";
 
 const TimeTable = () => {
     const times = [
-        ["",     "monday", "tuesday/thursday", "friday", "saturday", "sunday"],
+        ["",     "monday", "tuesday-thursday", "friday", "saturday", "sunday"],
         ["i wake up at:","","","","",""]
     ]
     return(
